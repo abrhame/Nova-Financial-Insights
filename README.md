@@ -125,8 +125,8 @@ The analysis provides valuable insights into trends in financial news and stock 
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/yourrepository.git
-   cd yourrepository
+   git clone https://github.com/abrhame/Nova-Financial-Insights.git
+   cd Nova-Financial-Insights
    ```
 
 2. **Install Dependencies:**
@@ -136,10 +136,8 @@ The analysis provides valuable insights into trends in financial news and stock 
    ```
 
 3. **Run the Analysis:**
-   Execute the Jupyter Notebook or Python script to perform the analysis. For example:
-   ```bash
-   python analysis_script.py
-   ```
+   Execute the Jupyter Notebook
+   
 
 4. **View Results:**
    Check the generated plots and reports in the specified output directory.
@@ -165,6 +163,4 @@ matplotlib
 plotly
 ```
 
----
 
-Feel free to update the repository URL and file names as needed!
