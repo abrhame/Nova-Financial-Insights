@@ -12,6 +12,7 @@ This repository contains a comprehensive analysis of financial news and stock pr
 - [Data Collection Overview](#data-collection-overview)
 - [Seasonal Decomposition of Headline Length](#seasonal-decomposition-of-headline-length)
 - [Technical Indicators and Stock Performance Analysis](#technical-indicators-and-stock-performance-analysis)
+- [Correlation Analysis](#correlation-analysis)
 - [Cumulative Returns Analysis](#cumulative-returns-analysis)
 - [Conclusion](#conclusion)
 - [Key Achievements](#key-achievements)
@@ -25,7 +26,7 @@ This report analyzes financial news and stock data to uncover correlations betwe
 
 ## Introduction
 
-The analysis focuses on Apple Inc. (AAPL) stock, examining the relationship between news headlines and stock prices. Key analyses include seasonal decomposition of headline lengths and calculation of technical indicators like SMA, RSI, and MACD.
+The analysis focuses on Apple Inc. (AAPL) stock, examining the relationship between news headlines and stock prices. Key analyses include seasonal decomposition of headline lengths, calculation of technical indicators like SMA, RSI, and MACD, and correlation between news sentiment and stock returns.
 
 ## Problem Definition
 
@@ -33,6 +34,7 @@ The main objectives are:
 1. Analyze seasonality and trends in financial news headline lengths.
 2. Compute and visualize key financial indicators for AAPL stock.
 3. Assess the impact of daily and cumulative returns on stock performance.
+4. Analyze the correlation between news sentiment and stock returns.
 
 ## Project Challenges
 
@@ -95,6 +97,25 @@ data['Daily_Return'] = data['Close'].pct_change()
 data['Cumulative_Return'] = (1 + data['Daily_Return']).cumprod() - 1
 ```
 
+## Correlation Analysis
+
+Correlation analysis was conducted to assess the relationship between news sentiment and stock returns. Using sentiment scores derived from headlines and daily returns of AAPL, the Pearson correlation coefficient was calculated to determine the strength of the correlation.
+
+```python
+# Calculate the Pearson correlation 
+correlation = merged_data['daily_return'].corr(merged_data['sentiment'])
+print(correlation)
+```
+
+A scatter plot with a trendline was also generated to visualize this relationship.
+
+```python
+import plotly.express as px
+
+fig = px.scatter(merged_data, x='sentiment', y='daily_return', trendline='ols', title='AAPL Stock Sentiment vs. Daily Return')
+fig.show()
+```
+
 ## Cumulative Returns Analysis
 
 Cumulative returns for AAPL are visualized to show overall investment growth over the period.
@@ -107,13 +128,14 @@ fig.show()
 
 ## Conclusion
 
-The analysis provides valuable insights into trends in financial news and stock performance. Seasonal decomposition and technical indicators offer a comprehensive view of AAPL stock's behavior over time.
+The analysis provides valuable insights into trends in financial news and stock performance. Seasonal decomposition, correlation analysis, and technical indicators offer a comprehensive view of AAPL stock's behavior over time.
 
 ## Key Achievements
 
 - Decomposed and analyzed headline length data.
 - Computed and visualized key financial indicators for AAPL stock.
 - Analyzed cumulative returns.
+- Established correlation between news sentiment and stock returns.
 
 ## Future Directions
 
@@ -151,6 +173,7 @@ The analysis provides valuable insights into trends in financial news and stock 
 - `statsmodels`
 - `matplotlib`
 - `plotly`
+- `nltk`
 
 Create a `requirements.txt` file with the following content:
 
@@ -161,6 +184,6 @@ ta-lib
 statsmodels
 matplotlib
 plotly
+nltk
 ```
-
 
